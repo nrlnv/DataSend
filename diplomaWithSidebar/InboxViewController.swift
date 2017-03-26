@@ -1,27 +1,22 @@
 //
-//  HistoryViewController.swift
+//  InboxViewController.swift
 //  diplomaWithSidebar
 //
-//  Created by Елдос Нурланов on 25.03.17.
+//  Created by Елдос Нурланов on 26.03.17.
 //  Copyright © 2017 kbtu. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class HistoryViewController: UITableViewController {
-    
+class InboxViewController: UITableViewController {
+
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var currentUserEmail: String = ""
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
-        
         checkIfLoggedIn()
-        
     }
     
     func handleLogout() {
@@ -41,6 +36,23 @@ class HistoryViewController: UITableViewController {
         
     }
     
+    func checkIfLoggedIn() {
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            do {
+                try FIRAuth.auth()?.signOut()
+            } catch let logoutError {
+                print(logoutError)
+            }
+            
+            return
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(handleLogout))
+            fetchUserAndSetupNavBarTitle()
+            observeUserMessages()
+            
+        }
+    }
+    
     func fetchUserAndSetupNavBarTitle() {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {
             return
@@ -56,6 +68,8 @@ class HistoryViewController: UITableViewController {
     }
     
     var messages = [Message]()
+    //var messagesDictionary = [String: Message]()
+    
     func observeUserMessages() {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {
             return
@@ -70,10 +84,10 @@ class HistoryViewController: UITableViewController {
                 (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     let message = Message()
-                    message.setValuesForKeys(dictionary)
-                    if message.from == self.currentUserEmail {
-                        self.messages.append(message)
                     
+                    message.setValuesForKeys(dictionary)
+                    if message.to == self.currentUserEmail {
+                        self.messages.append(message)
                     }
                     self.tableView.reloadData()
                     
@@ -81,35 +95,10 @@ class HistoryViewController: UITableViewController {
                 }
                 
             }, withCancel: nil)
-        
-        }, withCancel: nil)
-    
-    }
-    
-    func checkIfLoggedIn() {
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-            do {
-                try FIRAuth.auth()?.signOut()
-            } catch let logoutError {
-                print(logoutError)
-            }
             
-            return
-        } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(handleLogout))
-            fetchUserAndSetupNavBarTitle()
-            //observeMessages()
-            observeUserMessages()
-        }
+        }, withCancel: nil)
+        
     }
-    
-    func showInboxOutboxViewController() {
-        let inboxVC = InboxOutboxViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationController?.pushViewController(inboxVC, animated: true)
-    
-    }
-    
-    //side menu handling
     
     func sideMenu() {
         if revealViewController() != nil {
@@ -118,13 +107,6 @@ class HistoryViewController: UITableViewController {
             self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -137,14 +119,13 @@ class HistoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let message = messages[indexPath.row]
         
-        cell.textLabel?.text = message.to
+        cell.textLabel?.text = message.from
         cell.detailTextLabel?.text = message.text
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = tableView.cellForRow(at: indexPath)
         UIPasteboard.general.string = selectedItem?.detailTextLabel?.text
@@ -153,7 +134,6 @@ class HistoryViewController: UITableViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
-
     
 
 }

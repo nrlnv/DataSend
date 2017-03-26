@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		945C7B8073252F2CF6310384 /* Pods_diplomaWithSidebar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED06A95B2AB5FC46C5CDDECE /* Pods_diplomaWithSidebar.framework */; };
+		B1252B721E87E338008081AE /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252B711E87E338008081AE /* InboxViewController.swift */; };
 		B12C1DA21E8326D600438439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12C1DA11E8326D600438439 /* AppDelegate.swift */; };
 		B12C1DA41E8326D600438439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12C1DA31E8326D600438439 /* ViewController.swift */; };
 		B12C1DA71E8326D600438439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12C1DA51E8326D600438439 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		4DD8AD97385A4940349E6A23 /* Pods-diplomaWithSidebar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diplomaWithSidebar.release.xcconfig"; path = "Pods/Target Support Files/Pods-diplomaWithSidebar/Pods-diplomaWithSidebar.release.xcconfig"; sourceTree = "<group>"; };
 		A79B13ACF40CD63E0922B017 /* Pods-diplomaWithSidebar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diplomaWithSidebar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-diplomaWithSidebar/Pods-diplomaWithSidebar.debug.xcconfig"; sourceTree = "<group>"; };
+		B1252B711E87E338008081AE /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		B12C1D9E1E8326D600438439 /* diplomaWithSidebar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diplomaWithSidebar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12C1DA11E8326D600438439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = diplomaWithSidebar/AppDelegate.swift; sourceTree = "<group>"; };
 		B12C1DA31E8326D600438439 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				B12C1DB31E8326FB00438439 /* diplomaWithSidebar-Bridging-Header.h */,
 				B16353A41E859925000B7497 /* HistoryViewController.swift */,
 				B16353A61E859FE7000B7497 /* InboxOutboxViewController.swift */,
+				B1252B711E87E338008081AE /* InboxViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				B12C1DA21E8326D600438439 /* AppDelegate.swift in Sources */,
 				B12C1DB61E8326FC00438439 /* SWRevealViewController.m in Sources */,
 				B16353AD1E85CB36000B7497 /* Message.swift in Sources */,
+				B1252B721E87E338008081AE /* InboxViewController.swift in Sources */,
 				B12C1DBB1E83338A00438439 /* LoginRegistrationViewController.swift in Sources */,
 				B16353A71E859FE7000B7497 /* InboxOutboxViewController.swift in Sources */,
 				B16353A91E85BC3A000B7497 /* User.swift in Sources */,

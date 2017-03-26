@@ -129,54 +129,66 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     //sending name of image name to recipient
+    var toId: String = ""
     func handleSend(imageName: String) {
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         let fromId = FIRAuth.auth()!.currentUser!.uid
+        let timestamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
         
-//        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
-//            return
-//        }
-//        
-//        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {
-//            (snapshot) in
-//            if l et dictionary = snapshot.value as? [String: AnyObject] {
-//                from = dictionary["email"] as! String
-//            }
-//        }, withCancel: nil)
-//        getId()
-        
-        let values = ["text": imageName, "to": emailTextField.text!, "from": self.from]
-        //childRef.updateChildValues(values)
-        
-        childRef.updateChildValues(values) { (error, ref) in
-            
-            if error != nil {
-                print(error)
-                return
+        FIRDatabase.database().reference().child("users").observe(.value, with: {(snapshot) in
+            let dictionary = snapshot.value as? [String: AnyObject]
+            print(dictionary!)
+            //print("id is: " + toId!)
+            for (theKey, theValue) in dictionary! {
+                for (key, value) in theValue as! NSDictionary {
+                    if key as! String == "email" {
+                        if self.emailTextField.text == value as! String {
+                            self.toId = theKey
+                            print("vnutri "+self.toId)
+                            let values = ["text": imageName, "to": self.emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
+                            print("err:"+self.toId)
+                            childRef.updateChildValues(values) { (error, ref) in
+                                
+                                if error != nil {
+                                    print(error)
+                                    return
+                                }
+                                let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(fromId)
+                                let messageId = childRef.key
+                                userMessagesRef.updateChildValues([messageId: 1])
+                                
+                                let recipientUserMessagesRef = FIRDatabase.database().reference().child("user-messages").child(self.toId)
+                                recipientUserMessagesRef.updateChildValues([messageId: 1])
+                                
+                            }
+                        }
+                    } 
+                }
             }
-            let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(fromId)
-            let messageId = childRef.key
-            userMessagesRef.updateChildValues([messageId: 1])
             
-        
+            
         }
+            , withCancel: nil)
+        
+        
+        
+//        let values = ["text": imageName, "to": emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
+//        print("err:"+self.toId)
+//        childRef.updateChildValues(values) { (error, ref) in
+//            
+//            if error != nil {
+//                print(error)
+//                return
+//            }
+//            let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(fromId)
+//            let messageId = childRef.key
+//            userMessagesRef.updateChildValues([messageId: 1])
+//            
+//        
+//        }
     }
     
-//    var toId: String = ""
-//    func getId() {
-//        FIRDatabase.database().reference().child("users").observeSingleEvent(of: .value, with: {
-//            (snapshot) in
-//            
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                if self.emailTextField.text == dictionary["email"] as? String {
-//                    self.toId = snapshot.key
-//                }
-//            }
-//        
-//        }, withCancel: nil)
-//    
-//    }
     
     //scrolling up views when keyboard appears
     

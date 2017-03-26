@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "diplomaWithSidebar/HistoryViewController.swift"
-            timestampString = "512220266.586376"
+            timestampString = "512240091.903519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "checkIfLoggedIn()"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "showInboxOutboxViewController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "diplomaWithSidebar/HistoryViewController.swift"
-            timestampString = "512220266.586376"
+            timestampString = "512240091.903519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "HistoryViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "diplomaWithSidebar/HistoryViewController.swift"
-            timestampString = "512220266.586376"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "observeMessages()"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "showInboxOutboxViewController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
