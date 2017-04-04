@@ -19,7 +19,7 @@ class HistoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
-        
+        self.navigationItem.title = "DataSend"
         checkIfLoggedIn()
         
     }
@@ -140,7 +140,8 @@ class HistoryViewController: UITableViewController {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
         let message = messages[indexPath.row]
         
-        cell.textLabel?.text = message.to
+        cell.textLabel?.text = "to: " + message.to!
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
         cell.detailTextLabel?.text = message.text
         return cell
     }

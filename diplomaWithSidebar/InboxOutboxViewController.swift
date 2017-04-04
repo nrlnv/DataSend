@@ -14,17 +14,6 @@ class InboxOutboxViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationItem.title = "Inbox and Outbox"
         collectionView?.backgroundColor = UIColor.white
-        
-//        setupInputComponents()
     }
     
-//    func setupInputComponents() {
-//        let containerView = UIView()
-//        containerView.backgroundColor = UIColor.red
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(containerView )
-//    
-//    }
-    
-
 }

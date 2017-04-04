@@ -13,9 +13,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var currentUserEmail: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
+        self.navigationItem.title = "DataSend"
         checkIfLoggedIn()
     }
     
@@ -43,7 +45,6 @@ class ViewController: UIViewController {
             fetchUserAndSetupNavBarTitle()
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(handleLogout))
-            //self.navigationItem.rightBarButtonItem?.image = UIImage(named: "logout_icon")
         }
     }
     
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
     func handleLogout() {
         do {
             try FIRAuth.auth()?.signOut()
-            self.navigationItem.title = ""
+            self.navigationItem.title = "DataSend"
             self.navigationItem.rightBarButtonItem = nil
             let alert = UIAlertController(title: "Success!", message: "Successfully logged out", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)

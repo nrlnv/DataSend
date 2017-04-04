@@ -93,9 +93,10 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             self.view.bringSubview(toFront: ring1)
             ring1.isHidden = false
             ring1.animationStyle = kCAMediaTimingFunctionLinear
-            ring1.setProgress(value: 100, animationDuration: 4, completion: nil)
+            ring1.setProgress(value: 99, animationDuration: 4, completion: nil)
             let imageName = NSUUID().uuidString
             let storageRef = FIRStorage.storage().reference().child("\(imageName).jpeg")
+            //print("image name: " + imageName)
             if let uploadData = UIImageJPEGRepresentation(self.imageView.image!, 0.8) {
                 storageRef.put(uploadData, metadata: nil, completion:
                     { (metadata, error) in
@@ -104,7 +105,7 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                             return
                         }
                         self.ring1.isHidden = true
-                        print(metadata)
+                        //print(metadata)
                         UIPasteboard.general.string = imageName
                         if self.emailTextField.text != "" {
                             self.handleSend(imageName: imageName)
@@ -138,16 +139,16 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         FIRDatabase.database().reference().child("users").observe(.value, with: {(snapshot) in
             let dictionary = snapshot.value as? [String: AnyObject]
-            print(dictionary!)
+            //print(dictionary!)
             //print("id is: " + toId!)
             for (theKey, theValue) in dictionary! {
                 for (key, value) in theValue as! NSDictionary {
                     if key as! String == "email" {
                         if self.emailTextField.text == value as! String {
                             self.toId = theKey
-                            print("vnutri "+self.toId)
+                            //print("vnutri "+self.toId)
                             let values = ["text": imageName, "to": self.emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
-                            print("err:"+self.toId)
+                            //print("err:"+self.toId)
                             childRef.updateChildValues(values) { (error, ref) in
                                 
                                 if error != nil {
@@ -171,22 +172,6 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
             , withCancel: nil)
         
-        
-        
-//        let values = ["text": imageName, "to": emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
-//        print("err:"+self.toId)
-//        childRef.updateChildValues(values) { (error, ref) in
-//            
-//            if error != nil {
-//                print(error)
-//                return
-//            }
-//            let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(fromId)
-//            let messageId = childRef.key
-//            userMessagesRef.updateChildValues([messageId: 1])
-//            
-//        
-//        }
     }
     
     

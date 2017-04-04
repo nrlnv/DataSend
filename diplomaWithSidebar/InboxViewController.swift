@@ -13,16 +13,18 @@ class InboxViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var currentUserEmail: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
+        self.navigationItem.title = "DataSend"
         checkIfLoggedIn()
     }
     
     func handleLogout() {
         do {
             try FIRAuth.auth()?.signOut()
-            self.navigationItem.title = ""
+            self.navigationItem.title = "DataSend"
             self.navigationItem.rightBarButtonItem = nil
             self.navigationController!.pushViewController(self.storyboard!.instantiateViewController(withIdentifier: "vcid"), animated: true)
             let alert = UIAlertController(title: "Success!", message: "Successfully logged out", preferredStyle: .alert)
@@ -121,11 +123,12 @@ class InboxViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let message = messages[indexPath.row]
-        
-        cell.textLabel?.text = message.from
+        cell.textLabel?.text = "from: " + message.from!
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
         cell.detailTextLabel?.text = message.text
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = tableView.cellForRow(at: indexPath)
         UIPasteboard.general.string = selectedItem?.detailTextLabel?.text
