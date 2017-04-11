@@ -75,6 +75,9 @@ class HistoryViewController: UITableViewController {
                         self.messages.append(message)
                     
                     }
+                    self.messages.sort(by: {(message1, message2) -> Bool in
+                        return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
+                    })
                     self.tableView.reloadData()
                     
                     

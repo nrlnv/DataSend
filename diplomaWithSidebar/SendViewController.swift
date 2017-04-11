@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import UICircularProgressRing
+import CryptoSwift
 
 class SendViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICircularProgressRingDelegate {
     
@@ -22,8 +23,10 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var ring1: UICircularProgressRingView!
     var from: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        keyTextField.text = String.random()
         ring1.isHidden = true
         ring1.animationStyle = kCAMediaTimingFunctionLinear
         ring1.backgroundColor = UIColor.init(red: 29/255, green: 10/255, blue: 31/255, alpha: 0.01)
@@ -106,7 +109,8 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         }
                         self.ring1.isHidden = true
                         //print(metadata)
-                        UIPasteboard.general.string = imageName
+                        //UIPasteboard.general.string = imageName
+                        UIPasteboard.general.string = self.keyTextField.text
                         if self.emailTextField.text != "" {
                             self.handleSend(imageName: imageName)
                         }
@@ -147,7 +151,19 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         if self.emailTextField.text == value as! String {
                             self.toId = theKey
                             //print("vnutri "+self.toId)
-                            let values = ["text": imageName, "to": self.emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
+                            
+                            let input = imageName
+                            let key = self.keyTextField.text
+                            let iv = "gqLOHUioQ0QjhuvI"
+                            let en = try! input.aesEncrypt(key: key!, iv: iv)
+                            
+                            print("link: " + en)
+                            
+                            
+                            
+                            
+                            
+                            let values = ["text": en, "to": self.emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
                             //print("err:"+self.toId)
                             childRef.updateChildValues(values) { (error, ref) in
                                 
@@ -210,5 +226,29 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     
+
+}
+
+extension String {
+    
+    static func random(length: Int = 16) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.characters.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return randomString
+    }
+
+    func aesEncrypt(key: String, iv: String) throws -> String {
+        let data = self.data(using: .utf8)!
+        let encrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).encrypt([UInt8](data))
+        let encryptedData = Data(encrypted)
+        return encryptedData.base64EncodedString()
+    }
+
+
 
 }

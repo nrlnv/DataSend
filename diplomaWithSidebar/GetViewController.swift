@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CryptoSwift
 
 class GetViewController: UIViewController {
     
@@ -23,7 +24,13 @@ class GetViewController: UIViewController {
     @IBAction func getButton(_ sender: UIButton) {
         self.dismissKeyboard()
         if urlTextField.text != "" {
-            let name = urlTextField.text! + ".jpeg"
+            
+            let input = self.urlTextField.text
+            let key = self.keyTextField.text
+            let iv = "gqLOHUioQ0QjhuvI"
+            let des = try! input!.aesDecrypt(key: key!, iv: iv)
+            
+            let name = des + ".jpeg"
             let storageRef = FIRStorage.storage().reference().child(name)
             storageRef.data(withMaxSize: 5 * 1024 * 1024, completion:
                 { (data, error) in
@@ -31,7 +38,7 @@ class GetViewController: UIViewController {
                         print(error.localizedDescription)
                     }
                     else {
-                        print(data)
+                        //print(data)
                         self.imageView.image = UIImage(data: data!)
                         self.imageView.contentMode = .scaleAspectFit
                         self.saveButton.isEnabled = true
@@ -88,5 +95,19 @@ class GetViewController: UIViewController {
         
     }
    
+
+}
+
+
+
+extension String {
+    
+    func aesDecrypt(key: String, iv: String) throws -> String {
+        let data = Data(base64Encoded: self)!
+        let decrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt([UInt8](data))
+        let decryptedData = Data(decrypted)
+        return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
+    }
+
 
 }

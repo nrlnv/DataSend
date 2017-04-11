@@ -1,4 +1,5 @@
 PODS:
+  - CryptoSwift (0.6.8)
   - Firebase/Auth (3.9.0):
     - Firebase/Core
     - FirebaseAuth (= 3.0.6)
@@ -47,13 +48,25 @@ PODS:
   - UICircularProgressRing (1.1.4)
 
 DEPENDENCIES:
+  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift`, branch `master`)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - UICircularProgressRing
 
+EXTERNAL SOURCES:
+  CryptoSwift:
+    :branch: master
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+
+CHECKOUT OPTIONS:
+  CryptoSwift:
+    :commit: b1a4e7890ff979579a40138d74f1528de6f44d64
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+
 SPEC CHECKSUMS:
+  CryptoSwift: 769c3796bb40f94f7b0fb4f829eaebb67fde9897
   Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -67,6 +80,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   UICircularProgressRing: 3e49e99c80c0a5c5164e5ad840b232bfe912f260
 
-PODFILE CHECKSUM: b62cac690ce13f3e9a6926e64bb6b5664b436e94
+PODFILE CHECKSUM: c1bb32e77a92665dca083ede26d1d3141187ea14
 
 COCOAPODS: 1.2.0

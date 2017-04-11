@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CryptoSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0C95D375F8730E7EF3A95E30D2A5B16</key>
+		<key>6BB1C1403B2419F911818DA8413FDA07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6ED7F5268E5370ED16BC6BAB6946ABAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D5CC6C449F0E364AD191AEDA66D3161</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D89B7230276E0DC4A8BFC608F72D467B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,4 +11,5 @@ target 'diplomaWithSidebar' do
 	pod 'Firebase/Auth’
 	pod 'Firebase/Database’
 	pod 'UICircularProgressRing'
+	pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
 end
