@@ -110,9 +110,14 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         self.ring1.isHidden = true
                         //print(metadata)
                         //UIPasteboard.general.string = imageName
-                        UIPasteboard.general.string = self.keyTextField.text
+                        //UIPasteboard.general.string = self.keyTextField.text
                         if self.emailTextField.text != "" {
                             self.handleSend(imageName: imageName)
+                            UIPasteboard.general.string = self.keyTextField.text
+                        } else {
+                        
+                        UIPasteboard.general.string = imageName + ", " + self.keyTextField.text!
+                        
                         }
                         
                         print("image successfully loaded to Firebase storage")

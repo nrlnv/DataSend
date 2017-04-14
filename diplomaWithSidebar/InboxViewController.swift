@@ -19,6 +19,47 @@ class InboxViewController: UITableViewController {
         sideMenu()
         self.navigationItem.title = "DataSend"
         checkIfLoggedIn()
+        tableView.allowsMultipleSelectionDuringEditing = true
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let ref = FIRDatabase.database().reference().child("messages")
+        let selectedItem = tableView.cellForRow(at: indexPath)
+        let text = selectedItem?.detailTextLabel?.text
+        
+        ref.observeSingleEvent(of: .value, with: {(snapshot) in
+        
+            let dictionary = snapshot.value as? [String: AnyObject]
+            for (theKey, theValue) in dictionary! {
+                for (key, value) in theValue as! NSDictionary {
+                    if key as! String == "text" {
+                        if text == value as! String {
+                            guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+                                return
+                            }
+                            FIRDatabase.database().reference().child("messages").child(key as! String).removeValue(completionBlock: {(error, ref) in
+                                
+                                if error != nil {
+                                    print("failed")
+                                    return
+                                }
+                                
+                                self.messages.remove(at: indexPath.row)
+                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                                
+                                print("successfully deleted")
+                            })
+                            
+                        
+                        }
+                    }
+                }
+            }
+        })
     }
     
     func handleLogout() {
