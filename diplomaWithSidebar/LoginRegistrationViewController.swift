@@ -67,7 +67,8 @@ class LoginRegistrationViewController: UIViewController {
     
     let inputsContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor =  UIColor.white
+        //view.backgroundColor =  UIColor.white
+        view.backgroundColor = UIColor.init(red: 254/255, green: 227/255, blue: 62/255, alpha: 1.0)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
@@ -76,10 +77,12 @@ class LoginRegistrationViewController: UIViewController {
     
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.white
+        //button.backgroundColor = UIColor.white
+        button.backgroundColor = UIColor.init(red: 254/255, green: 227/255, blue: 62/255, alpha: 1.0)
         button.setTitle("R E G I S T E R", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.init(red: 29/255, green: 10/255, blue: 31/255, alpha: 1), for: .normal)
+        //button.setTitleColor(UIColor.init(red: 29/255, green: 10/255, blue: 31/255, alpha: 1), for: .normal)
+        button.setTitleColor(UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0), for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -90,7 +93,8 @@ class LoginRegistrationViewController: UIViewController {
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["L O G I N", "R E G I S T E R"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.white
+        //sc.tintColor = UIColor.white
+        sc.tintColor = UIColor.init(red: 254/255, green: 227/255, blue: 62/255, alpha: 1.0)
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         return sc
@@ -169,7 +173,7 @@ class LoginRegistrationViewController: UIViewController {
     
     let nameSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
+        view.backgroundColor = UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -185,7 +189,7 @@ class LoginRegistrationViewController: UIViewController {
     
     let emailSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
+        view.backgroundColor = UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

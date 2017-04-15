@@ -48,10 +48,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kem-D9-1bp">
                                 <rect key="frame" x="37" y="275" width="300" height="47"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.8901960784313725" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="36"/>
                                 <state key="normal" title="G E T">
-                                    <color key="titleColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="Fju-sJ-jp3" kind="show" id="DFe-EA-2fw"/>
@@ -59,17 +59,17 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c2-hO-anz">
                                 <rect key="frame" x="37" y="345" width="300" height="47"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="36"/>
                                 <state key="normal" title="S E N D">
-                                    <color key="titleColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="bQG-1B-gsP" kind="show" id="K1U-QG-Z7K"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7c2-hO-anz" firstAttribute="height" secondItem="pmv-um-V2i" secondAttribute="height" multiplier="0.07" id="3Ug-m2-2qk"/>
                             <constraint firstItem="7c2-hO-anz" firstAttribute="centerY" secondItem="pmv-um-V2i" secondAttribute="centerY" constant="35" id="3eM-1w-gWi"/>
@@ -109,10 +109,10 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xR-N6-CEb">
                                 <rect key="frame" x="37" y="182" width="300" height="46.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="37"/>
                                 <state key="normal" title="G E T">
-                                    <color key="titleColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="getButton:" destination="Fju-sJ-jp3" eventType="touchUpInside" id="Vbz-xq-b3m"/>
@@ -120,15 +120,15 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="enter your key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-Tv-zF0">
                                 <rect key="frame" x="37.5" y="125.5" width="300" height="46.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="paste the link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LvN-zk-LkT">
                                 <rect key="frame" x="37.5" y="69" width="300" height="46.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
@@ -139,7 +139,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1xR-N6-CEb" firstAttribute="centerX" secondItem="O97-RV-swX" secondAttribute="centerX" id="0YT-B9-SpJ"/>
                             <constraint firstItem="1xR-N6-CEb" firstAttribute="width" secondItem="JUC-1o-2iG" secondAttribute="width" id="7ra-2o-J8Z"/>
@@ -219,7 +219,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDQ-MG-WAi">
                                 <rect key="frame" x="37" y="69" width="300" height="267"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="250"/>
                                 <color key="textColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -228,7 +228,7 @@
                                 <rect key="frame" x="67" y="86" width="240" height="213.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="200"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addImageButton:" destination="bQG-1B-gsP" eventType="touchUpInside" id="y1m-Ro-Iwx"/>
@@ -239,31 +239,31 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="enter your key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tKm-i6-uEv">
                                 <rect key="frame" x="37.5" y="346" width="300" height="46.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="enter recipient's email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="giv-Ih-EjF">
                                 <rect key="frame" x="37.5" y="402.5" width="300" height="46.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eK-e8-A7Y">
                                 <rect key="frame" x="37" y="459" width="300" height="46.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="36"/>
                                 <state key="normal" title="S E N D">
-                                    <color key="titleColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="sendImageToStorage:" destination="bQG-1B-gsP" eventType="touchUpInside" id="IgV-bn-gNM"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="XDQ-MG-WAi" firstAttribute="width" secondItem="BXU-yq-VfZ" secondAttribute="width" multiplier="0.8" id="1xN-uN-jqk"/>
                             <constraint firstItem="fed-T1-K3h" firstAttribute="centerX" secondItem="BXU-yq-VfZ" secondAttribute="centerX" id="Alv-qO-igS"/>
@@ -481,7 +481,7 @@
                     <view key="view" contentMode="scaleToFill" id="XYQ-kY-9jd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1137254902" green="0.039215686270000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="gjK-D3-qve">
                         <barButtonItem key="leftBarButtonItem" image="menu_icon" id="wZg-lM-iyw"/>

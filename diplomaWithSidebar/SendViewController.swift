@@ -100,6 +100,22 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             let imageName = NSUUID().uuidString
             let storageRef = FIRStorage.storage().reference().child("\(imageName).jpeg")
             //print("image name: " + imageName)
+            
+            let input = imageName
+            let key = self.keyTextField.text
+            let iv = "gqLOHUioQ0QjhuvI"
+            let en = try! input.aesEncrypt(key: key!, iv: iv)
+            
+            print("link: " + en)
+            
+            
+            
+            
+            
+            
+            
+            
+            
             if let uploadData = UIImageJPEGRepresentation(self.imageView.image!, 0.8) {
                 storageRef.put(uploadData, metadata: nil, completion:
                     { (metadata, error) in
@@ -112,18 +128,18 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                         //UIPasteboard.general.string = imageName
                         //UIPasteboard.general.string = self.keyTextField.text
                         if self.emailTextField.text != "" {
-                            self.handleSend(imageName: imageName)
+                            self.handleSend(imageName: en)
                             UIPasteboard.general.string = self.keyTextField.text
                         } else {
                         
-                        UIPasteboard.general.string = imageName + ", " + self.keyTextField.text!
+                        UIPasteboard.general.string = en + ", " + self.keyTextField.text!
                         
                         }
                         
                         print("image successfully loaded to Firebase storage")
                         darkView.isHidden = true
                         self.navigationController!.pushViewController(self.storyboard!.instantiateViewController(withIdentifier: "vcid"), animated: true)
-                        let alert = UIAlertController(title: "Completed", message: "Image has been sent!", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Completed", message: "The key copied to clipboard!", preferredStyle: .alert)
                         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                         alert.addAction(action)
                         self.present(alert, animated: true, completion: nil)
@@ -157,18 +173,18 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                             self.toId = theKey
                             //print("vnutri "+self.toId)
                             
-                            let input = imageName
-                            let key = self.keyTextField.text
-                            let iv = "gqLOHUioQ0QjhuvI"
-                            let en = try! input.aesEncrypt(key: key!, iv: iv)
-                            
-                            print("link: " + en)
-                            
-                            
+//                            let input = imageName
+//                            let key = self.keyTextField.text
+//                            let iv = "gqLOHUioQ0QjhuvI"
+//                            let en = try! input.aesEncrypt(key: key!, iv: iv)
+//                            
+//                            print("link: " + en)
                             
                             
+                            print("hi there: " + imageName)
                             
-                            let values = ["text": en, "to": self.emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
+                            
+                            let values = ["text": imageName, "to": self.emailTextField.text!, "from": self.from, "timestamp": timestamp] as [String : Any]
                             //print("err:"+self.toId)
                             childRef.updateChildValues(values) { (error, ref) in
                                 

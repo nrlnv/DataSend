@@ -24,56 +24,32 @@ class GetViewController: UIViewController {
     @IBAction func getButton(_ sender: UIButton) {
         self.dismissKeyboard()
         
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-            if urlTextField.text != "" {
-                let name = self.urlTextField.text! + ".jpeg"
-                let storageRef = FIRStorage.storage().reference().child(name)
-                storageRef.data(withMaxSize: 5 * 1024 * 1024, completion:
-                    { (data, error) in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        }
-                        else {
-                            //print(data)
-                            self.imageView.image = UIImage(data: data!)
-                            self.imageView.contentMode = .scaleAspectFit
-                            self.saveButton.isEnabled = true
-                        }
-                })
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Paste the link", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }
+        if urlTextField.text != "" && keyTextField.text != ""{
+            
+            let input = self.urlTextField.text
+            let key = self.keyTextField.text
+            let iv = "gqLOHUioQ0QjhuvI"
+            let des = try! input!.aesDecrypt(key: key!, iv: iv)
+            
+            let name = des + ".jpeg"
+            let storageRef = FIRStorage.storage().reference().child(name)
+            storageRef.data(withMaxSize: 5 * 1024 * 1024, completion:
+                { (data, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    else {
+                        //print(data)
+                        self.imageView.image = UIImage(data: data!)
+                        self.imageView.contentMode = .scaleAspectFit
+                        self.saveButton.isEnabled = true
+                    }
+            })
         } else {
-            if urlTextField.text != "" {
-                
-                let input = self.urlTextField.text
-                let key = self.keyTextField.text
-                let iv = "gqLOHUioQ0QjhuvI"
-                let des = try! input!.aesDecrypt(key: key!, iv: iv)
-                
-                let name = des + ".jpeg"
-                let storageRef = FIRStorage.storage().reference().child(name)
-                storageRef.data(withMaxSize: 5 * 1024 * 1024, completion:
-                    { (data, error) in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        }
-                        else {
-                            //print(data)
-                            self.imageView.image = UIImage(data: data!)
-                            self.imageView.contentMode = .scaleAspectFit
-                            self.saveButton.isEnabled = true
-                        }
-                })
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Paste the link", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }
+            let alert = UIAlertController(title: "Error", message: "Paste the link", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
