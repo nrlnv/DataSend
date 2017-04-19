@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rmE-L2-JHE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_logo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rmE-L2-JHE">
                                 <rect key="frame" x="97" y="243" width="180" height="180"/>
                                 <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -54,6 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_icon" width="180" height="180"/>
+        <image name="new_logo_icon" width="180" height="180"/>
     </resources>
 </document>
